@@ -19,6 +19,7 @@
         REACT_ID_ATTRIBUTE = require('react/lib/DOMProperty').ID_ATTRIBUTE_NAME;
     } else {
         React = $window.React;
+        ReactDOM = $window.ReactDOM;
     }
 
     /**
@@ -57,10 +58,10 @@
             shadowRoot.appendChild(mainElement);
 
             // Render component and intercept the DOM events.
-            React.render(this.render(), mainElement);
+            ReactDOM.render(this.render(), mainElement);
             this._interceptEvents();
 
-            // strip inline <style> elements
+            // Strip inline <style> elements
             this._stripInlineStyles();
 
             // Wrap current DOM node in `script` tag.
@@ -79,7 +80,7 @@
          */
         componentDidUpdate: function componentDidUpdate() {
             var containerElement = this._shadowRoot.querySelector(REACT_SHADOW_ROOT);
-            React.render(this.render(), containerElement);
+            ReactDOM.render(this.render(), containerElement);
             this._stripInlineStyles();
         },
 
