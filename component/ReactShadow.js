@@ -47,7 +47,7 @@
          */
         componentDidMount: function componentDidMount() {
 
-            var shadowRoot  = this._shadowRoot = ReactDOM.findDOMNode(this.parentNode).createShadowRoot(),
+            var shadowRoot  = this._shadowRoot = ReactDOM.findDOMNode(this).parentNode.createShadowRoot(),
                 mainElement = $document.createElement(REACT_SHADOW_ROOT);
 
             // Attach CSS.
